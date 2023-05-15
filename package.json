@@ -4,9 +4,8 @@
   "description": "psicoleigos back end",
   "main": "server.js",
   "scripts": {
-    "test": "test",
     "start": "node server.js",
-    "build": "node run build"
+    "run": "node server.js"
   },
   "repository": {
     "type": "git",
