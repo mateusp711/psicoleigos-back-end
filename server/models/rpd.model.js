@@ -31,6 +31,6 @@ var schema = new moongoose.Schema({
   },
 });
 
-const db = moongoose.model("db", schema);
+const db = moongoose.model("rpd", schema);
 
 module.exports = db;
