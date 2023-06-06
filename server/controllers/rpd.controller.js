@@ -28,15 +28,17 @@ exports.create = (req, res) => {
 };
 
 // get all or single user //
-exports.find = (req, res) => {
-  if (req.params.createdBy) {
-    rpdModel.findOne({ createdBy: req.body.createdBy }).then((data) => {
+exports.find  = (req, res) => {
+  if (req.query.createdBy) {
+    rpdModel.find({ createdBy: req.query.createdBy }).then((data) => {
       if (!data) {
         res
           .status(404)
           .send({ message: `failed to locate rpds by ${req.body.createdBy}` });
-      } else {
+      } if (data.length > 1) {
         res.send(data);
+      } else if (data.length <= 1) {
+        res.send([data])
       }
     });
   } else {
